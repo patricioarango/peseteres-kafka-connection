@@ -11,6 +11,7 @@ config/zookeeper-*
 *.keystore
 *.truststore
 *.pem
+*.properties
 
 # Build / IDEs / OS (ajusta según tu stack)
 target/
