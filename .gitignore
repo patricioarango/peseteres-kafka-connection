@@ -1,0 +1,24 @@
+# Datos locales de Kafka / KRaft / Zookeeper y logs
+/logs
+data/
+kafka-logs/
+config/server-*
+config/zookeeper-*
+
+# Secretos, keystores y archivos de entorno
+*.env
+*.jks
+*.keystore
+*.truststore
+*.pem
+
+# Build / IDEs / OS (ajusta según tu stack)
+target/
+build/
+out/
+.gradle/
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
