@@ -1,0 +1,30 @@
+
+services:
+  kafka:
+    image: apache/kafka:4.4.0
+    container_name: kafka
+    hostname: kafka
+    restart: unless-stopped
+
+    ports:
+      # External listener only
+      - "9093:9093"
+
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+      - ./config/server.properties:/etc/kafka/server.properties:ro
+      - ./secrets:/etc/kafka/secrets:ro
+
+    environment:
+      KAFKA_OPTS: >-
+        -Djava.security.auth.login.config=/etc/kafka/secrets/broker_jaas.conf
+
+    networks:
+      - kafka_internal
+
+volumes:
+  kafka_data:
+
+networks:
+  kafka_internal:
+    internal: true
